@@ -41,41 +41,58 @@ const CatalogPage = () => {
 
   return (
     <div className="catalog">
-      <h1>Top Sellers</h1>
-      <select onChange={(e) => setGenre(e.target.value)}>
-        <option value="All">All</option>
-        {availableFilters.map((filter) => (
-          <option key={filter} value={filter}>
-            {filter}
-          </option>
-        ))}
-      </select>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {games.map((game) => (
-            <div key={game.id} className="card">
-              <img src={game.image} alt={game.name} />
-              <h2>{game.name}</h2>
-              <p>{game.genre}</p>
-              <p>${game.price}</p>
-              <button
-                onClick={() => toggleCartItem(game)}
-                className={
-                  cart.some((item) => item.id === game.id)
-                    ? "bg-red-500"
-                    : "bg-blue-500"
-                }
-              >
-                {cart.some((item) => item.id === game.id)
-                  ? "Remove"
-                  : "Add to Cart"}
-              </button>
-            </div>
+      {/* Header con el enlace al carrito */}
+      <header className="flex justify-between items-center p-4 bg-gray-100">
+        <h1 className="text-2xl font-bold">GamerShop</h1>
+        <a
+          href="/cart"
+          className="text-blue-500 text-lg font-semibold hover:underline"
+        >
+          View Cart ({cart.length})
+        </a>
+      </header>
+
+      {/* Contenido principal */}
+      <div className="p-4">
+        <h2 className="text-xl font-bold">Top Sellers</h2>
+        <select
+          onChange={(e) => setGenre(e.target.value)}
+          className="border rounded p-2 my-4"
+        >
+          <option value="All">All</option>
+          {availableFilters.map((filter) => (
+            <option key={filter} value={filter}>
+              {filter}
+            </option>
           ))}
-        </div>
-      )}
+        </select>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {games.map((game) => (
+              <div key={game.id} className="card">
+                <img src={game.image} alt={game.name} />
+                <h3>{game.name}</h3>
+                <p>{game.genre}</p>
+                <p>${game.price}</p>
+                <button
+                  onClick={() => toggleCartItem(game)}
+                  className={
+                    cart.some((item) => item.id === game.id)
+                      ? "bg-red-500"
+                      : "bg-blue-500"
+                  }
+                >
+                  {cart.some((item) => item.id === game.id)
+                    ? "Remove"
+                    : "Add to Cart"}
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
