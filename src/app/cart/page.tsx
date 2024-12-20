@@ -15,7 +15,6 @@ const CartPage = () => {
 
   return (
     <div className="cart">
-      {/* Header */}
       <header className="flex justify-between items-center p-4 bg-gray-100">
         <h1 className="text-2xl font-bold">GamerShop</h1>
       </header>
@@ -23,10 +22,9 @@ const CartPage = () => {
         href="/"
         className="text-blue-500 text-lg font-semibold hover:underline"
       >
-        Back to Catalog
+        - Back to Catalog
       </a>
 
-      {/* Contenido principal */}
       <div className="p-4">
         <h2 className="text-xl font-bold">Your Cart</h2>
         {cart.length === 0 ? (

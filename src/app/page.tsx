@@ -41,7 +41,6 @@ const CatalogPage = () => {
 
   return (
     <div className="catalog">
-      {/* Header con el enlace al carrito */}
       <header className="flex justify-between items-center p-4 bg-gray-100">
         <h1 className="text-2xl font-bold">GamerShop</h1>
         <a
@@ -52,7 +51,6 @@ const CatalogPage = () => {
         </a>
       </header>
 
-      {/* Contenido principal */}
       <div className="p-4">
         <h2 className="text-xl font-bold">Top Sellers</h2>
         <select
