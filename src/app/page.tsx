@@ -41,8 +41,8 @@ const CatalogPage = () => {
 
   return (
     <div className="catalog">
-      <header className="flex justify-between items-center p-4 bg-gray-100">
-        <h1 className="text-2xl font-bold">GamerShop</h1>
+      <header className="custom-main-header flex justify-between items-center">
+        <h1 className="custom-main-header-title">GamerShop</h1>
         <a
           href="/cart"
           className="text-blue-500 text-lg font-semibold hover:underline"
@@ -51,19 +51,26 @@ const CatalogPage = () => {
         </a>
       </header>
 
+      <div className="custom-main-sub-header">
+        <h2 className="custom-main-sub-header-title">Top Sellers</h2>
+        <br />
+        <div className="custom-main-sub-header-title-filter">
+          Genre
+          <select
+            onChange={(e) => setGenre(e.target.value)}
+            className="border rounded p-2 my-4"
+          >
+            <option value="All">All</option>
+            {availableFilters.map((filter) => (
+              <option key={filter} value={filter}>
+                {filter}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div className="p-4">
-        <h2 className="text-xl font-bold">Top Sellers</h2>
-        <select
-          onChange={(e) => setGenre(e.target.value)}
-          className="border rounded p-2 my-4"
-        >
-          <option value="All">All</option>
-          {availableFilters.map((filter) => (
-            <option key={filter} value={filter}>
-              {filter}
-            </option>
-          ))}
-        </select>
         {loading ? (
           <p>Loading...</p>
         ) : (
