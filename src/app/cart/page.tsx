@@ -13,6 +13,8 @@ const CartPage = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+  const total = cart.reduce((acc, item) => acc + item.price, 0);
+
   return (
     <div className="cart">
       <header className="custom-main-header flex justify-between items-center">
@@ -29,57 +31,73 @@ const CartPage = () => {
       </header>
       <a
         href="/"
-        className="text-blue-500 text-lg font-semibold hover:underline"
+        className="text-blue-500 text-lg font-semibold hover:underline p-4 block"
       >
         ← Back to Catalog
       </a>
 
-      <div className="p-4">
-        <h2 className="text-xl font-bold">Your Cart</h2>
-        {cart.length === 0 ? (
-          <p className="text-gray-500">No items in cart</p>
-        ) : (
-          <>
-            <p>
-              {cart.length} {cart.length > 1 ? "items" : "item"}
-            </p>
+      <div className="p-4 flex flex-col md:flex-row justify-between">
+        {/* Items List */}
+        <div className="flex-1">
+          <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
+          <p className="text-gray-600 mb-4">
+            {cart.length} {cart.length > 1 ? "items" : "item"}
+          </p>
 
-            <ul className="space-y-4">
-              {cart.map((item: Game) => (
-                <li
-                  key={item.id}
-                  className="flex items-center justify-between border-b pb-4"
-                >
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-16 h-16"
-                    />
-                    <div>
-                      <p className="text-gray-600">{item.genre}</p>
-                      <p className="text-lg font-semibold">{item.name}</p>
-                      <p className="text-gray-600">{item.description}</p>
-                      <p className="text-gray-600">${item.price}</p>
+          <ul className="space-y-4">
+            {cart.map((item: Game) => (
+              <li
+                key={item.id}
+                className="flex items-start justify-between border-b pb-4"
+              >
+                <div className="flex gap-4">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-24 h-24 rounded-md object-cover"
+                  />
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-500 text-sm">{item.genre}</p>
+                      <button
+                        onClick={() => removeFromCart(item.id)}
+                        className="text-red-500 hover:underline"
+                      >
+                        x
+                      </button>
                     </div>
+                    <p className="text-lg font-semibold">{item.name}</p>
+                    <p className="text-gray-500 text-sm">
+                      {item.description || "Description if necessary"}
+                    </p>
+                    <p className="text-lg font-semibold">${item.price}</p>
                   </div>
-                  <button
-                    onClick={() => removeFromCart(item.id)}
-                    className="hover:underline"
-                  >
-                    x
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6">
-              <button className="bg-blue-500 text-white p-2 rounded">
-                Checkout
-              </button>
-            </div>
-          </>
-        )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Order Summary */}
+        <div className="w-full md:w-1/3  p-6 rounded-lg mt-6 md:mt-0 md:ml-6">
+          <h3 className="text-xl font-bold mb-4">Order Summary</h3>
+          <div className="space-y-2">
+            {cart.map((item: Game) => (
+              <div key={item.id} className="flex justify-between">
+                <p className="text-gray-600">{item.name}</p>
+                <p className="font-semibold">${item.price}</p>
+              </div>
+            ))}
+          </div>
+          <hr className="my-4" />
+          <div className="flex justify-between text-lg font-bold">
+            <p>Order Total</p>
+            <p>${total.toFixed(2)}</p>
+          </div>
+          <button className="custom-cart-checkout-button">Checkout</button>
+        </div>
       </div>
+
       <footer className="custom-main-footer">
         <div className="custom-main-footer-information">
           <div className="custom-main-footer-img">
