@@ -17,12 +17,15 @@ const CartPage = () => {
     <div className="cart">
       <header className="custom-main-header flex justify-between items-center">
         <h1 className="custom-main-header-title">GamerShop</h1>
-        <a
-          href="/cart"
-          className="text-blue-500 text-lg font-semibold hover:underline"
-        >
-          <p className="custom-main-header-cart">View Cart ({cart.length})</p>
-        </a>
+        <div className="custom-main-header-img">
+          <a href="/cart">
+            <img
+              src="/app-images/CART_ICON.png"
+              alt="cart-icon"
+              className="cursor-pointer"
+            />
+          </a>
+        </div>
       </header>
       <a
         href="/"
@@ -78,7 +81,15 @@ const CartPage = () => {
         )}
       </div>
       <footer className="custom-main-footer">
-        <p className="text-white text-center py-4">Logo</p>
+        <div className="custom-main-footer-information">
+          <div className="custom-main-footer-img">
+            <img
+              src="/app-images/AP_LOGO.png"
+              alt="Logo"
+              className="logo-image"
+            />
+          </div>
+        </div>
       </footer>
     </div>
   );
