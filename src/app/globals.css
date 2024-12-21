@@ -63,9 +63,11 @@
 .custom-card {
   width: 100%;
   max-width: 380px;
-  height: auto;
-  padding: 16px;
-  gap: 16px;
+  /* height: auto; */
+  height: 436px;
+  max-height: 436px;
+  padding: 24px;
+  gap: 8px;
   border-radius: 16px;
   background: #ffffff;
   border: 0.5px solid #8f8f8f;
@@ -83,6 +85,7 @@
   object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .custom-card-genre {
@@ -93,6 +96,7 @@
   text-align: left;
   text-transform: uppercase;
   color: #737373;
+  margin-bottom: -10px;
 }
 
 .custom-card-header {
@@ -129,7 +133,7 @@
   width: 100%;
   height: 56px;
   padding: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #3b3b3b;
   background-color: transparent;
   display: flex;
