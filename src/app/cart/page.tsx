@@ -79,21 +79,24 @@ const CartPage = () => {
         </div>
 
         {/* Order Summary */}
-        <div className="w-full md:w-1/3  p-6 rounded-lg mt-6 md:mt-0 md:ml-6">
-          <h3 className="text-xl font-bold mb-4">Order Summary</h3>
-          <div className="space-y-2">
+        <div className="custom-cart-order-summary">
+          <div className="custom-cart-order-summary-detail">
+            <h3 className="">Order Summary</h3>
+            {cart.length} {cart.length > 1 ? "items" : "item"}
             {cart.map((item: Game) => (
               <div key={item.id} className="flex justify-between">
                 <p className="text-gray-600">{item.name}</p>
                 <p className="font-semibold">${item.price}</p>
               </div>
             ))}
+            <hr className="my-4" />
+            <div className="flex justify-between text-lg font-bold">
+              <p>Order Total</p>
+              <p>${total.toFixed(2)}</p>
+            </div>
+            <hr className="my-4" />
           </div>
-          <hr className="my-4" />
-          <div className="flex justify-between text-lg font-bold">
-            <p>Order Total</p>
-            <p>${total.toFixed(2)}</p>
-          </div>
+
           <button className="custom-cart-checkout-button">Checkout</button>
         </div>
       </div>

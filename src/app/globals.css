@@ -6,7 +6,7 @@
 
 .custom-main-header {
   background-color: #eeeeee;
-  height: 64px; 
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -159,6 +159,29 @@
 }
 
 /* Cart page */
+.custom-cart-order-summary {
+  width: 522px;
+  height: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.custom-cart-order-summary-detail {
+  width: 100%;
+  padding-top: 32px;
+  padding-right: 24px;
+  padding-bottom: 32px;
+  padding-left: 24px;
+  gap: 32px;
+  border-radius: 8px 0 0 0;
+  border: 0.5px solid;
+  border-color: #8f8f8f;
+  background: #ffffff;
+}
+
 .custom-cart-checkout-button {
   width: 100%;
   height: 56px;
