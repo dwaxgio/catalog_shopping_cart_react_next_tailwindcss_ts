@@ -78,8 +78,16 @@ const CatalogPage = () => {
           <p>Loading...</p>
         ) : games.length > 0 ? (
           games.map((game) => (
-            <div key={game.id} className="custom-card">
-              <img src={game.image} alt={game.name} />
+            <div key={game.id} className="custom-card relative">
+              {/* Indicador "New" */}
+              {game.isNew && <div className="custom-card-new">New</div>}
+
+              <img
+                src={game.image}
+                alt={game.name}
+                className="custom-card-img"
+              />
+
               <div className="custom-card-genre">
                 <p>{game.genre}</p>
               </div>
