@@ -80,9 +80,13 @@ const CatalogPage = () => {
           games.map((game) => (
             <div key={game.id} className="custom-card">
               <img src={game.image} alt={game.name} />
-              <p>{game.genre}</p>
-              <p>{game.name}</p>
-              <p>${game.price}</p>
+              <div className="custom-card-genre">
+                <p>{game.genre}</p>
+              </div>
+              <div className="custom-card-header">
+                <p className="custom-card-name">{game.name}</p>
+                <p className="custom-card-price">${game.price}</p>
+              </div>
               <button
                 onClick={() => toggleCartItem(game)}
                 className="custom-card-button"
