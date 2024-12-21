@@ -95,6 +95,9 @@ const CatalogPage = () => {
           </div>
         )}
       </div>
+      <footer className="custom-main-footer">
+        <p className="text-white text-center py-4">Logo</p>
+      </footer>
     </div>
   );
 };
