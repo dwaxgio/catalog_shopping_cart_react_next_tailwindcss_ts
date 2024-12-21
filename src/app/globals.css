@@ -5,7 +5,11 @@
 .custom-main-header {
   background-color: #eeeeee;
   height: 64px;
-  opacity: 0;
+  /* opacity: 0; */ /* Comentado para evitar inconsistencias */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
 }
 
 .custom-main-header-title {
@@ -20,8 +24,13 @@
   text-decoration-skip-ink: none;
 }
 
+.custom-main-header-cart {
+  color: #585660;
+}
+
 .custom-main-sub-header {
   height: 240px;
+  padding: 16px;
 }
 
 .custom-main-sub-header-title {
@@ -37,10 +46,12 @@
 
 .custom-main-sub-header-title-filter {
   text-align: right;
+  margin-top: 16px;
 }
 
 .custom-card {
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   height: auto;
   padding: 16px;
   gap: 16px;
@@ -57,7 +68,6 @@
 
 .custom-card img {
   width: 100%;
-  max-width: 348px;
   height: 240px;
   object-fit: cover;
   border-radius: 12px;
@@ -65,7 +75,6 @@
 
 .custom-card-button {
   width: 100%;
-  max-width: 348px;
   height: 56px;
   padding: 0;
   border-radius: 12px;
@@ -78,4 +87,9 @@
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.3s ease;
+}
+
+.custom-card-button:hover {
+  background-color: #f0f0f0;
+  border-color: #000000;
 }

@@ -47,7 +47,7 @@ const CatalogPage = () => {
           href="/cart"
           className="text-blue-500 text-lg font-semibold hover:underline"
         >
-          View Cart ({cart.length})
+          <p className="custom-main-header-cart">View Cart ({cart.length})</p>
         </a>
       </header>
 
