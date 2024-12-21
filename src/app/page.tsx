@@ -70,31 +70,31 @@ const CatalogPage = () => {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="custom-cards-container">
         {loading ? (
           <p>Loading...</p>
+        ) : games.length > 0 ? (
+          games.map((game) => (
+            <div key={game.id} className="custom-card">
+              <img src={game.image} alt={game.name} />
+              <p>{game.genre}</p>
+              <p>{game.name}</p>
+              <p>${game.price}</p>
+              <button
+                onClick={() => toggleCartItem(game)}
+                className="custom-card-button"
+              >
+                {cart.some((item) => item.id === game.id)
+                  ? "Remove"
+                  : "Add to Cart"}
+              </button>
+            </div>
+          ))
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {games.map((game) => (
-              <div key={game.id} className="custom-card">
-                <img src={game.image} alt={game.name} />
-                <p>{game.genre}</p>
-                <p>{game.name}</p>                
-                <p>${game.price}</p>
-                {/* <p>{game.isNew ? "New" : ""}</p> */}
-                <button
-                  onClick={() => toggleCartItem(game)}
-                  className="custom-card-button"
-                >
-                  {cart.some((item) => item.id === game.id)
-                    ? "Remove"
-                    : "Add to Cart"}
-                </button>
-              </div>
-            ))}
-          </div>
+          <p>No games available</p>
         )}
       </div>
+
       <footer className="custom-main-footer">
         <p className="text-white text-center py-4">Logo</p>
       </footer>
