@@ -15,14 +15,20 @@ const CartPage = () => {
 
   return (
     <div className="cart">
-      <header className="flex justify-between items-center p-4 bg-gray-100">
-        <h1 className="text-2xl font-bold">GamerShop</h1>
+      <header className="custom-main-header flex justify-between items-center">
+        <h1 className="custom-main-header-title">GamerShop</h1>
+        <a
+          href="/cart"
+          className="text-blue-500 text-lg font-semibold hover:underline"
+        >
+          <p className="custom-main-header-cart">View Cart ({cart.length})</p>
+        </a>
       </header>
       <a
         href="/"
         className="text-blue-500 text-lg font-semibold hover:underline"
       >
-        - Back to Catalog
+        ← Back to Catalog
       </a>
 
       <div className="p-4">
@@ -31,6 +37,10 @@ const CartPage = () => {
           <p className="text-gray-500">No items in cart</p>
         ) : (
           <>
+            <p>
+              {cart.length} {cart.length > 1 ? "items" : "item"}
+            </p>
+
             <ul className="space-y-4">
               {cart.map((item: Game) => (
                 <li
@@ -44,15 +54,17 @@ const CartPage = () => {
                       className="w-16 h-16"
                     />
                     <div>
-                      <h3 className="text-lg font-semibold">{item.name}</h3>
+                      <p className="text-gray-600">{item.genre}</p>
+                      <p className="text-lg font-semibold">{item.name}</p>
+                      <p className="text-gray-600">{item.description}</p>
                       <p className="text-gray-600">${item.price}</p>
                     </div>
                   </div>
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className="text-red-500 hover:underline"
+                    className="hover:underline"
                   >
-                    Remove
+                    x
                   </button>
                 </li>
               ))}
