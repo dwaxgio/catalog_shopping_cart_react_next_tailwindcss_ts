@@ -2,20 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/*Main page*/
 .custom-main-header {
   background-color: #eeeeee;
   height: 64px;
-  opacity: 0px;
+  opacity: 0;
 }
 
 .custom-main-header-title {
   color: #585660;
-  font-family: Area Normal;
+  font-family: "Area Normal", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0.4000000059604645px;
+  line-height: 1;
+  letter-spacing: 0.4px;
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
@@ -26,11 +25,11 @@
 }
 
 .custom-main-sub-header-title {
-  font-family: Archivo;
+  font-family: "Archivo", sans-serif;
   font-size: 36px;
   font-weight: 700;
-  line-height: 40px;
-  letter-spacing: 0.4000000059604645px;
+  line-height: 1.11;
+  letter-spacing: 0.4px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
@@ -38,4 +37,45 @@
 
 .custom-main-sub-header-title-filter {
   text-align: right;
+}
+
+.custom-card {
+  width: 380px;
+  height: auto;
+  padding: 16px;
+  gap: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 0.5px solid #8f8f8f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+}
+
+.custom-card img {
+  width: 100%;
+  max-width: 348px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.custom-card-button {
+  width: 100%;
+  max-width: 348px;
+  height: 56px;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid #3b3b3b;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }

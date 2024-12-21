@@ -55,7 +55,7 @@ const CatalogPage = () => {
         <h2 className="custom-main-sub-header-title">Top Sellers</h2>
         <br />
         <div className="custom-main-sub-header-title-filter">
-          Genre
+          Genre<span> | </span>
           <select
             onChange={(e) => setGenre(e.target.value)}
             className="border rounded p-2 my-4"
@@ -76,18 +76,15 @@ const CatalogPage = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {games.map((game) => (
-              <div key={game.id} className="card">
+              <div key={game.id} className="custom-card">
                 <img src={game.image} alt={game.name} />
-                <h3>{game.name}</h3>
                 <p>{game.genre}</p>
+                <p>{game.name}</p>                
                 <p>${game.price}</p>
+                {/* <p>{game.isNew ? "New" : ""}</p> */}
                 <button
                   onClick={() => toggleCartItem(game)}
-                  className={
-                    cart.some((item) => item.id === game.id)
-                      ? "bg-red-500"
-                      : "bg-blue-500"
-                  }
+                  className="custom-card-button"
                 >
                   {cart.some((item) => item.id === game.id)
                     ? "Remove"
