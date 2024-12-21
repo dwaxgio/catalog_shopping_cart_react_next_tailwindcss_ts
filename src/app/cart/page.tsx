@@ -94,7 +94,7 @@ const CartPage = () => {
               <p>Order Total</p>
               <p>${total.toFixed(2)}</p>
             </div>
-            <hr className="my-4" />
+           
           </div>
 
           <button className="custom-cart-checkout-button">Checkout</button>
