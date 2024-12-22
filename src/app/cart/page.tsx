@@ -29,12 +29,20 @@ const CartPage = () => {
           </a>
         </div>
       </header>
-      <a
-        href="/"
-        className="text-blue-500 text-lg font-semibold hover:underline p-4 block"
-      >
-        ← Back to Catalog
-      </a>
+      <div className="custom-cart-sub-header">
+        <div className="custom-cart-sub-header-container">
+          <a href="/" className="custom-cart-sub-header-content">
+            <img
+              src="/app-images/BACK_ICON.png"
+              alt="Back to Catalog"
+              className="custom-cart-sub-header-content-back-icon"
+            />
+            <p className="custom-cart-sub-header-content-text">
+              Back to Catalog
+            </p>
+          </a>
+        </div>
+      </div>
 
       <div className="p-4 flex flex-col md:flex-row justify-between">
         {/* Items List */}
@@ -94,7 +102,6 @@ const CartPage = () => {
               <p>Order Total</p>
               <p>${total.toFixed(2)}</p>
             </div>
-           
           </div>
 
           <button className="custom-cart-checkout-button">Checkout</button>
