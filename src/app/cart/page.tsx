@@ -47,10 +47,16 @@ const CartPage = () => {
       <div className="p-4 flex flex-col md:flex-row justify-between">
         {/* Items List */}
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
-          <p className="text-gray-600 mb-4">
-            {cart.length} {cart.length > 1 ? "items" : "item"}
-          </p>
+          <div className="custom-cart-sub-sub-header-container">
+            <div className="custom-cart-sub-sub-header-title">
+              <p>Your Cart</p>
+            </div>
+            <div className="custom-cart-sub-sub-header-items-count">
+              <p>
+                {cart.length} {cart.length > 1 ? "items" : "item"}
+              </p>
+            </div>
+          </div>
 
           <ul className="space-y-4">
             {cart.map((item: Game) => (
