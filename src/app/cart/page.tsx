@@ -44,73 +44,76 @@ const CartPage = () => {
         </div>
       </div>
 
-      <div className="p-4 flex flex-col md:flex-row justify-between">
-        {/* Items List */}
-        <div className="flex-1">
-          <div className="custom-cart-sub-sub-header-container">
-            <div className="custom-cart-sub-sub-header-title">
-              <p>Your Cart</p>
-            </div>
-            <div className="custom-cart-sub-sub-header-items-count">
-              <p>
-                {cart.length} {cart.length > 1 ? "items" : "item"}
-              </p>
-            </div>
-          </div>
+      <div className="p-4">
+        {/* Left Panel */}
 
-          <ul className="space-y-4">
-            {cart.map((item: Game) => (
-              <li
-                key={item.id}
-                className="flex items-start justify-between border-b pb-4"
-              >
-                <div className="flex gap-4">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-24 h-24 rounded-md object-cover"
-                  />
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-500 text-sm">{item.genre}</p>
-                      <button
-                        onClick={() => removeFromCart(item.id)}
-                        className="text-red-500 hover:underline"
-                      >
-                        x
-                      </button>
-                    </div>
-                    <p className="text-lg font-semibold">{item.name}</p>
-                    <p className="text-gray-500 text-sm">
-                      {item.description || "Description if necessary"}
-                    </p>
-                    <p className="text-lg font-semibold">${item.price}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="custom-cart-sub-sub-header-container">
+          <div className="custom-cart-sub-sub-header-title">
+            <p>Your Cart</p>
+          </div>
+          <div className="custom-cart-sub-sub-header-items-count">
+            <p>
+              {cart.length} {cart.length > 1 ? "items" : "item"}
+            </p>
+          </div>
         </div>
-
-        {/* Order Summary */}
-        <div className="custom-cart-order-summary">
-          <div className="custom-cart-order-summary-detail">
-            <h3 className="">Order Summary</h3>
-            {cart.length} {cart.length > 1 ? "items" : "item"}
-            {cart.map((item: Game) => (
-              <div key={item.id} className="flex justify-between">
-                <p className="text-gray-600">{item.name}</p>
-                <p className="font-semibold">${item.price}</p>
-              </div>
-            ))}
-            <hr className="my-4" />
-            <div className="flex justify-between text-lg font-bold">
-              <p>Order Total</p>
-              <p>${total.toFixed(2)}</p>
-            </div>
+        <div className="custom-cart-left-and-right-panels-container flex flex-col md:flex-row gap-8">
+          <div className="custom-cart-left-panel flex-1">
+            <ul className="space-y-4">
+              {cart.map((item: Game) => (
+                <li
+                  key={item.id}
+                  className="flex items-start justify-between border-b pb-4"
+                >
+                  <div className="flex gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-24 h-24 rounded-md object-cover"
+                    />
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center">
+                        <p className="text-gray-500 text-sm">{item.genre}</p>
+                        <button
+                          onClick={() => removeFromCart(item.id)}
+                          className="text-red-500 hover:underline"
+                        >
+                          x
+                        </button>
+                      </div>
+                      <p className="text-lg font-semibold">{item.name}</p>
+                      <p className="text-gray-500 text-sm">
+                        {item.description || "Description if necessary"}
+                      </p>
+                      <p className="text-lg font-semibold">${item.price}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <button className="custom-cart-checkout-button">Checkout</button>
+          {/* Right Panel */}
+          <div className="custom-cart-right-panel">
+            <div className="custom-cart-order-summary">
+              <div className="custom-cart-order-summary-detail">
+                <h3 className="">Order Summary</h3>
+                {cart.length} {cart.length > 1 ? "items" : "item"}
+                {cart.map((item: Game) => (
+                  <div key={item.id} className="flex justify-between">
+                    <p className="text-gray-600">{item.name}</p>
+                    <p className="font-semibold">${item.price}</p>
+                  </div>
+                ))}
+                <hr className="my-4" />
+                <div className="flex justify-between text-lg font-bold">
+                  <p>Order Total</p>
+                  <p>${total.toFixed(2)}</p>
+                </div>
+              </div>
+              <button className="custom-cart-checkout-button">Checkout</button>
+            </div>
+          </div>
         </div>
       </div>
 
