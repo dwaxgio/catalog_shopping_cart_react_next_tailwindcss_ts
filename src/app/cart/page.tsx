@@ -45,8 +45,6 @@ const CartPage = () => {
       </div>
 
       <div className="p-4">
-        {/* Left Panel */}
-
         <div className="custom-cart-sub-sub-header-container">
           <div className="custom-cart-sub-sub-header-title">
             <p>Your Cart</p>
@@ -58,34 +56,36 @@ const CartPage = () => {
           </div>
         </div>
         <div className="custom-cart-left-and-right-panels-container flex flex-col md:flex-row gap-8">
-          <div className="custom-cart-left-panel flex-1">
+          <div className="custom-cart-left-panel">
             <ul className="space-y-4">
               {cart.map((item: Game) => (
-                <li
-                  key={item.id}
-                  className="flex items-start justify-between border-b pb-4"
-                >
-                  <div className="flex gap-4">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-24 h-24 rounded-md object-cover"
-                    />
-                    <div className="flex-1">
-                      <div className="flex justify-between items-center">
-                        <p className="text-gray-500 text-sm">{item.genre}</p>
-                        <button
-                          onClick={() => removeFromCart(item.id)}
-                          className="text-red-500 hover:underline"
-                        >
-                          x
-                        </button>
-                      </div>
-                      <p className="text-lg font-semibold">{item.name}</p>
-                      <p className="text-gray-500 text-sm">
-                        {item.description || "Description if necessary"}
+                <li key={item.id} className="custom-cart-left-item-container">
+                  <div className="custom-cart-left-item-img">
+                    <img src={item.image} alt={item.name} />
+                  </div>
+                  <div className="custom-cart-left-item-information">
+                    <div className="custom-cart-left-item-header">
+                      <p className="custom-cart-left-item-information-genre">
+                        {item.genre}
                       </p>
-                      <p className="text-lg font-semibold">${item.price}</p>
+                      <button
+                        onClick={() => removeFromCart(item.id)}
+                        className="custom-cart-left-item-information-remove-button"
+                      >
+                        x
+                      </button>
+                    </div>
+
+                    <p className="custom-cart-left-item-information-name">
+                      {item.name}
+                    </p>
+                    <p className="custom-cart-left-item-information-description">
+                      {item.description || "Description if necessary"}
+                    </p>
+                    <div className="custom-cart-left-item-information-price-container">
+                      <p className="custom-cart-left-item-information-price">
+                        ${item.price}
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -93,7 +93,6 @@ const CartPage = () => {
             </ul>
           </div>
 
-          {/* Right Panel */}
           <div className="custom-cart-right-panel">
             <div className="custom-cart-order-summary">
               <div className="custom-cart-order-summary-detail">
