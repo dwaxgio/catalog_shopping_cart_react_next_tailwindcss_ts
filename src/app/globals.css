@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.catalog-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 /* Header */
 
 .custom-main-header {
@@ -11,6 +32,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  z-index: 9999;
 }
 
 .custom-main-header-title {
@@ -669,13 +694,16 @@
 
 /* Footer */
 .custom-main-footer {
-  width: 100%;
+  width: 100vw; /* Asegura que ocupe el ancho completo del viewport */
   height: 172.09px;
   background-color: #404040;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
 }
 
 .custom-main-footer-information {

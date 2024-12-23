@@ -40,74 +40,78 @@ const CatalogPage = () => {
   };
 
   return (
-    <div className="catalog">
-      <header className="custom-main-header flex justify-between items-center">
-        <h1 className="custom-main-header-title">GamerShop</h1>
-        <div className="custom-main-header-img">
-          <a href="/cart">
-            <img
-              src="/app-images/CART_ICON.png"
-              alt="cart-icon"
-              className="cursor-pointer"
-            />
-          </a>
-        </div>
-      </header>
-
-      <div className="custom-main-sub-header">
-        <h2 className="custom-main-sub-header-title">Top Sellers</h2>
-        <br />
-        <div className="custom-main-sub-header-title-filter">
-          Genre<span> | </span>
-          <select
-            onChange={(e) => setGenre(e.target.value)}
-            className="border rounded p-2 my-4"
-          >
-            <option value="All">All</option>
-            {availableFilters.map((filter) => (
-              <option key={filter} value={filter}>
-                {filter}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div className="custom-cards-container">
-        {loading ? (
-          <p>Loading...</p>
-        ) : games.length > 0 ? (
-          games.map((game) => (
-            <div key={game.id} className="custom-card relative">
-              {/* Indicador "New" */}
-              {game.isNew && <div className="custom-card-new">New</div>}
-
-              <img
-                src={game.image}
-                alt={game.name}
-                className="custom-card-img"
-              />
-
-              <div className="custom-card-genre">
-                <p>{game.genre}</p>
-              </div>
-              <div className="custom-card-header">
-                <p className="custom-card-name">{game.name}</p>
-                <p className="custom-card-price">${game.price}</p>
-              </div>
-              <button
-                onClick={() => toggleCartItem(game)}
-                className="custom-card-button"
-              >
-                {cart.some((item) => item.id === game.id)
-                  ? "Remove"
-                  : "Add to Cart"}
-              </button>
+    <>
+      <div className="catalog-container">
+        <div className="catalog">
+          <header className="custom-main-header flex justify-between items-center">
+            <h1 className="custom-main-header-title">GamerShop</h1>
+            <div className="custom-main-header-img">
+              <a href="/cart">
+                <img
+                  src="/app-images/CART_ICON.png"
+                  alt="cart-icon"
+                  className="cursor-pointer"
+                />
+              </a>
             </div>
-          ))
-        ) : (
-          <p>No games available</p>
-        )}
+          </header>
+
+          <div className="custom-main-sub-header">
+            <h2 className="custom-main-sub-header-title">Top Sellers</h2>
+            <br />
+            <div className="custom-main-sub-header-title-filter">
+              Genre<span> | </span>
+              <select
+                onChange={(e) => setGenre(e.target.value)}
+                className="border rounded p-2 my-4"
+              >
+                <option value="All">All</option>
+                {availableFilters.map((filter) => (
+                  <option key={filter} value={filter}>
+                    {filter}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="custom-cards-container">
+            {loading ? (
+              <p>Loading...</p>
+            ) : games.length > 0 ? (
+              games.map((game) => (
+                <div key={game.id} className="custom-card relative">
+                  {/* Indicador "New" */}
+                  {game.isNew && <div className="custom-card-new">New</div>}
+
+                  <img
+                    src={game.image}
+                    alt={game.name}
+                    className="custom-card-img"
+                  />
+
+                  <div className="custom-card-genre">
+                    <p>{game.genre}</p>
+                  </div>
+                  <div className="custom-card-header">
+                    <p className="custom-card-name">{game.name}</p>
+                    <p className="custom-card-price">${game.price}</p>
+                  </div>
+                  <button
+                    onClick={() => toggleCartItem(game)}
+                    className="custom-card-button"
+                  >
+                    {cart.some((item) => item.id === game.id)
+                      ? "Remove"
+                      : "Add to Cart"}
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p>No games available</p>
+            )}
+          </div>
+        </div>
       </div>
 
       <footer className="custom-main-footer">
@@ -121,7 +125,7 @@ const CatalogPage = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 };
 
