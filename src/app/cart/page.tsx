@@ -62,10 +62,12 @@ const CartPage = () => {
             <div className="custom-cart-left-and-right-panels-container flex flex-col md:flex-row gap-8">
               <div className="custom-cart-left-panel">
                 <ul className="space-y-4">
-                  {cart.map((item: Game) => (
+                  {cart.map((item: Game, index) => (
                     <li
                       key={item.id}
-                      className="custom-cart-left-item-container"
+                      className={`custom-cart-left-item-container ${
+                        index !== cart.length - 1 ? "border-bottom" : ""
+                      }`}
                     >
                       <div className="custom-cart-left-item-img">
                         <img src={item.image} alt={item.name} />

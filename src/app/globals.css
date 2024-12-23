@@ -397,6 +397,10 @@ body {
   box-sizing: border-box;
 }
 
+.custom-cart-left-item-container:last-child {
+  border-bottom: none;
+}
+
 .custom-cart-left-item-img {
   width: 256px;
   height: 156px;
@@ -565,6 +569,10 @@ body {
   color: #3b3b3b;
   margin: 0;
   padding: 0;
+}
+
+.border-bottom {
+  border-bottom: 0.5px solid #8f8f8f;
 }
 
 .custom-cart-right-panel {
