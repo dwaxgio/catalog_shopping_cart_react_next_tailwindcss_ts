@@ -852,6 +852,21 @@ body {
     padding: 0;
   }
 
+  .custom-main-sub-header-title {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    text-align: left; 
+    margin-top: 50px;
+  }
+
+  .custom-main-sub-header-title-filter {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    text-align: left; 
+  }
+
   .custom-cart-left-item-container {
     display: flex;
     flex-direction: column;
@@ -884,11 +899,6 @@ body {
   }
 
   .custom-cart-left-item-img img {
-    /* width: 100%;
-    max-width: 259px;
-    height: auto;
-    max-height: 136px;
-    width: 259px; */
     height: 136px;
     padding: 8px;
     gap: 0px;
