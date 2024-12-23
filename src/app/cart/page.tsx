@@ -19,16 +19,18 @@ const CartPage = () => {
     <>
       <div className="container">
         <div className="cart">
-          <header className="custom-main-header flex justify-between items-center">
-            <h1 className="custom-main-header-title">GamerShop</h1>
-            <div className="custom-main-header-img">
-              <a href="/cart">
-                <img
-                  src="/app-images/CART_ICON.png"
-                  alt="cart-icon"
-                  className="cursor-pointer"
-                />
-              </a>
+          <header className="custom-main-header">
+            <div className="custom-main-header-internal-container">
+              <h1 className="custom-main-header-title">GamerShop</h1>
+              <div className="custom-main-header-img">
+                <a href="/cart">
+                  <img
+                    src="/app-images/CART_ICON.png"
+                    alt="cart-icon"
+                    className="cursor-pointer"
+                  />
+                </a>
+              </div>
             </div>
           </header>
           <div className="custom-cart-sub-header">

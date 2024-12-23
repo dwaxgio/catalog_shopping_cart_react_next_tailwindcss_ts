@@ -43,16 +43,18 @@ const CatalogPage = () => {
     <>
       <div className="catalog-container">
         <div className="catalog">
-          <header className="custom-main-header flex justify-between items-center">
-            <h1 className="custom-main-header-title">GamerShop</h1>
-            <div className="custom-main-header-img">
-              <a href="/cart">
-                <img
-                  src="/app-images/CART_ICON.png"
-                  alt="cart-icon"
-                  className="cursor-pointer"
-                />
-              </a>
+          <header className="custom-main-header">
+            <div className="custom-main-header-internal-container">
+              <h1 className="custom-main-header-title">GamerShop</h1>
+              <div className="custom-main-header-img">
+                <a href="/cart">
+                  <img
+                    src="/app-images/CART_ICON.png"
+                    alt="cart-icon"
+                    className="cursor-pointer"
+                  />
+                </a>
+              </div>
             </div>
           </header>
 
@@ -81,7 +83,6 @@ const CatalogPage = () => {
             ) : games.length > 0 ? (
               games.map((game) => (
                 <div key={game.id} className="custom-card relative">
-                  {/* Indicador "New" */}
                   {game.isNew && <div className="custom-card-new">New</div>}
 
                   <img
