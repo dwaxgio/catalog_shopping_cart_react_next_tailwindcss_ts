@@ -69,10 +69,12 @@ const CatalogPage = () => {
             <h2 className="custom-main-sub-header-title">Top Sellers</h2>
             <br />
             <div className="custom-main-sub-header-title-filter">
-              Genre<span> | </span>
+              <p className="custom-main-sub-header-title-filter-text">
+                Genre &nbsp;&nbsp;|&nbsp;&nbsp;
+              </p>
               <select
                 onChange={(e) => setGenre(e.target.value)}
-                className="border rounded p-2 my-4"
+                className="custom-main-sub-header-title-filter-filter"
               >
                 <option value="All">All</option>
                 {availableFilters.map((filter) => (
