@@ -817,150 +817,111 @@ body {
   object-fit: contain;
 }
 
-@media (max-width: 375px) {
+/* Mobile */
+@media only screen and (max-width: 768px) {
   body {
     margin: 0;
     padding: 0;
-    text-align: center;
+    overflow-x: hidden;
   }
 
   .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0;
+    justify-content: center;
     width: 100%;
     max-width: 100%;
-    padding: 0;
-  }
-
-  .catalog-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-  }
-
-  /* Catalog */
-  .custom-see-more-button {
-    width: 93%;
-  }
-
-  /* Cart */
-  .custom-cart-left-and-right-panels-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .custom-cart-left-panel {
-    width: 100%;
     padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .custom-main-header {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .custom-main-header-internal-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
 
   .custom-cart-left-item-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
     padding: 16px;
     gap: 16px;
-    border: 0;
-    border-bottom: 0.5px solid #8f8f8f;
-    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    box-sizing: border-box;
+    position: relative;
   }
 
   .custom-cart-left-item-img {
     width: 100%;
     max-width: 259px;
-    max-height: 136px;
-    padding: 8px;
-    object-fit: cover;
-    margin-bottom: 8px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 16px;
+    position: relative;
   }
 
   .custom-cart-left-item-information-remove-button {
+    position: absolute;
+    top: 30px;
+    right: 100px;
     width: 24px;
     height: 24px;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    z-index: 1;
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
     color: #8f8f8f;
+    background: none;
+    border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .custom-cart-left-item-information-remove-button:hover {
+    color: red;
   }
 
   .custom-cart-left-item-information {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .custom-cart-left-item-information-genre,
-  .custom-cart-left-item-information-name,
-  .custom-cart-left-item-information-description,
-  .custom-cart-left-item-information-price-container {
-    text-align: left;
-    width: 100%;
-  }
-
-  .custom-cart-left-item-information-name {
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .custom-cart-left-item-information-description {
-    font-size: 14px;
-    color: #737373;
-  }
-
-  .custom-cart-left-item-information-price-container {
-    font-size: 20px;
-    font-weight: 700;
-    text-align: right;
+    text-align: center;
   }
 
   .custom-cart-right-panel {
     width: 100%;
+    max-width: 100%;
     padding: 0 16px;
-    margin-top: 16px;
   }
 
   .custom-cart-order-summary {
     width: 100%;
     padding: 16px;
-    border: 0.5px solid #8f8f8f;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background: #ffffff;
-    text-align: left;
-  }
-
-  .custom-cart-order-summary-detail {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    background: #fff;
+    box-sizing: border-box;
   }
 
   .custom-cart-checkout-button {
     width: 100%;
     padding: 16px;
     background-color: #585660;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 16px;
