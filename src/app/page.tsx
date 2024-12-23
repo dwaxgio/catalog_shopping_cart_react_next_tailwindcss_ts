@@ -4,9 +4,11 @@ import { allGames, availableFilters, delay, Game } from "../utils/endpoint";
 
 const CatalogPage = () => {
   const [games, setGames] = useState<Game[]>([]);
+  const [displayedGames, setDisplayedGames] = useState<Game[]>([]);
   const [genre, setGenre] = useState<string>("All");
   const [loading, setLoading] = useState<boolean>(true);
   const [cart, setCart] = useState<Game[]>([]);
+  const [visibleCount, setVisibleCount] = useState<number>(12);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -22,10 +24,11 @@ const CatalogPage = () => {
           ? allGames
           : allGames.filter((game) => game.genre === genre);
       setGames(filteredGames);
+      setDisplayedGames(filteredGames.slice(0, visibleCount));
       setLoading(false);
     };
     fetchGames();
-  }, [genre]);
+  }, [genre, visibleCount]);
 
   const toggleCartItem = (game: Game) => {
     const isInCart = cart.some((item) => item.id === game.id);
@@ -37,6 +40,10 @@ const CatalogPage = () => {
     }
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const loadMoreGames = () => {
+    setVisibleCount((prevCount) => prevCount + 3);
   };
 
   return (
@@ -80,8 +87,8 @@ const CatalogPage = () => {
           <div className="custom-cards-container">
             {loading ? (
               <p>Loading...</p>
-            ) : games.length > 0 ? (
-              games.map((game) => (
+            ) : displayedGames.length > 0 ? (
+              displayedGames.map((game) => (
                 <div key={game.id} className="custom-card relative">
                   {game.isNew && <div className="custom-card-new">New</div>}
 
@@ -112,6 +119,17 @@ const CatalogPage = () => {
               <p>No games available</p>
             )}
           </div>
+
+          {!loading && displayedGames.length < games.length && (
+            <div className="custom-see-more-container">
+              <button
+                onClick={loadMoreGames}
+                className="custom-see-more-button"
+              >
+                SEE MORE
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
