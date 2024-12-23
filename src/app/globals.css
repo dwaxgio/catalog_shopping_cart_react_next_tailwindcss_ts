@@ -93,10 +93,8 @@ body {
 /* Catalog page */
 
 .custom-cards-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
   min-height: 300px;
   padding: 16px;
