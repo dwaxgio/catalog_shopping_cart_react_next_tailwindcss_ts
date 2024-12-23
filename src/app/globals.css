@@ -853,18 +853,45 @@ body {
   }
 
   .custom-main-sub-header-title {
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: flex-start; 
-    text-align: left; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
     margin-top: 50px;
   }
 
   .custom-main-sub-header-title-filter {
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: flex-start; 
-    text-align: left; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .custom-cart-sub-sub-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 90px;
+    margin-bottom: 50px;
+  }
+
+  .custom-cart-sub-sub-header-title {
+    text-align: left;
+    font-size: 20px;
+    margin: 0 0 8px 0;
+    width: 100%;
+  }
+
+  .custom-cart-sub-sub-header-items-count {
+    text-align: left;
+    font-size: 16px;
+    margin: 0;
+    width: 100%;
   }
 
   .custom-cart-left-item-container {
