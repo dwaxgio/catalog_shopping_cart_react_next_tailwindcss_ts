@@ -81,7 +81,7 @@ const CartPage = () => {
                             onClick={() => removeFromCart(item.id)}
                             className="custom-cart-left-item-information-remove-button"
                           >
-                            x
+                            X
                           </button>
                         </div>
 
