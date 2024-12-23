@@ -267,6 +267,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .custom-cart-sub-sub-header-items-count {
@@ -295,6 +297,7 @@
   height: auto;
   min-height: 588px;
   gap: 80px;
+  justify-content: center;
 }
 
 .custom-cart-left-panel {
@@ -524,6 +527,117 @@
   border: 0.5px solid;
   border-color: #8f8f8f;
   background: #ffffff;
+}
+
+.custom-cart-order-summary-detail-title {
+  width: 474px;
+  height: 30px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: "Archivo", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3b3b3b;
+  margin-bottom: 15px;
+}
+
+.custom-cart-order-summary-detail-total-items {
+  width: 474px;
+  height: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3b3b3b;
+  margin-bottom: 30px;
+}
+
+.custom-cart-order-summary-detail-name {
+  width: 100%;
+  max-width: 474px;
+  height: auto;
+  min-height: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3b3b3b;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.custom-cart-order-summary-detail-price {
+  width: 62px;
+  height: 24px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3b3b3b;
+}
+
+.custom-cart-order-summary-detail-total-container {
+  width: 100%;
+  max-width: 474px;
+  height: auto;
+  min-height: 24px;
+  gap: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-cart-order-summary-detail-total-title {
+  width: 394px;
+  height: 24px;
+  gap: 0px;
+  font-family: "Archivo", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3b3b3b;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.custom-cart-order-summary-detail-total-price {
+  width: 100%;
+  font-family: "Archivo", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3b3b3b;
 }
 
 .custom-cart-checkout-button {

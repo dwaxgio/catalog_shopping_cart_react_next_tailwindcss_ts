@@ -38,7 +38,7 @@ const CartPage = () => {
               className="custom-cart-sub-header-content-back-icon"
             />
             <p className="custom-cart-sub-header-content-text">
-              Back to Catalog
+              {"  "}Back to Catalog
             </p>
           </a>
         </div>
@@ -96,18 +96,30 @@ const CartPage = () => {
           <div className="custom-cart-right-panel">
             <div className="custom-cart-order-summary">
               <div className="custom-cart-order-summary-detail">
-                <h3 className="">Order Summary</h3>
-                {cart.length} {cart.length > 1 ? "items" : "item"}
+                <div className="custom-cart-order-summary-detail-title">
+                  Order Summary
+                </div>
+                <div className="custom-cart-order-summary-detail-total-items">
+                  {cart.length} {cart.length > 1 ? "items" : "item"}
+                </div>
                 {cart.map((item: Game) => (
                   <div key={item.id} className="flex justify-between">
-                    <p className="text-gray-600">{item.name}</p>
-                    <p className="font-semibold">${item.price}</p>
+                    <p className="custom-cart-order-summary-detail-name">
+                      {item.name}
+                    </p>
+                    <p className="custom-cart-order-summary-detail-price">
+                      ${item.price}
+                    </p>
                   </div>
                 ))}
                 <hr className="my-4" />
-                <div className="flex justify-between text-lg font-bold">
-                  <p>Order Total</p>
-                  <p>${total.toFixed(2)}</p>
+                <div className="custom-cart-order-summary-detail-total-container">
+                  <p className="custom-cart-order-summary-detail-total-title">
+                    Order Total
+                  </p>
+                  <p className="custom-cart-order-summary-detail-total-price">
+                    $ {total.toFixed(2)}
+                  </p>
                 </div>
               </div>
               <button className="custom-cart-checkout-button">Checkout</button>
