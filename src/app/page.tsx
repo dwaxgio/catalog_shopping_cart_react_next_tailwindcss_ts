@@ -1,43 +1,73 @@
 "use client";
 import { useEffect, useState } from "react";
-import { allGames, availableFilters, delay, Game } from "../utils/endpoint";
+
+interface Game {
+  id: string;
+  genre: string;
+  image: string;
+  name: string;
+  description: string;
+  price: number;
+  isNew: boolean;
+}
 
 const CatalogPage = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [displayedGames, setDisplayedGames] = useState<Game[]>([]);
+  const [filters, setFilters] = useState<string[]>(["All"]);
   const [genre, setGenre] = useState<string>("All");
   const [loading, setLoading] = useState<boolean>(true);
   const [cart, setCart] = useState<Game[]>([]);
   const [visibleCount, setVisibleCount] = useState<number>(12);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
+    // Cargar carrito desde localStorage
     const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(savedCart);
   }, []);
 
   useEffect(() => {
+    // Obtener filtros desde la API
+    const fetchFilters = async () => {
+      try {
+        const response = await fetch(`${API_URL}/games`);
+        const data = await response.json();
+        setFilters(["All", ...data.availableFilters]);
+      } catch (error) {
+        console.error("Error fetching filters:", error);
+      }
+    };
+
+    fetchFilters();
+  }, [API_URL]);
+
+  useEffect(() => {
+    // Obtener juegos desde la API
     const fetchGames = async () => {
       setLoading(true);
-      await delay(500);
-      const filteredGames =
-        genre === "All"
-          ? allGames
-          : allGames.filter((game) => game.genre === genre);
-      setGames(filteredGames);
-      setDisplayedGames(filteredGames.slice(0, visibleCount));
+      try {
+        const response = await fetch(
+          `${API_URL}/games?genre=${genre}&limit=${visibleCount}`
+        );
+        const data = await response.json();
+        setGames(data.games);
+        setDisplayedGames(data.games.slice(0, visibleCount));
+      } catch (error) {
+        console.error("Error fetching games:", error);
+      }
       setLoading(false);
     };
+
     fetchGames();
-  }, [genre, visibleCount]);
+  }, [genre, visibleCount, API_URL]);
 
   const toggleCartItem = (game: Game) => {
     const isInCart = cart.some((item) => item.id === game.id);
-    let updatedCart;
-    if (isInCart) {
-      updatedCart = cart.filter((item) => item.id !== game.id);
-    } else {
-      updatedCart = [...cart, game];
-    }
+    const updatedCart = isInCart
+      ? cart.filter((item) => item.id !== game.id)
+      : [...cart, game];
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
@@ -76,8 +106,7 @@ const CatalogPage = () => {
                 onChange={(e) => setGenre(e.target.value)}
                 className="custom-main-sub-header-title-filter-filter"
               >
-                <option value="All">All</option>
-                {availableFilters.map((filter) => (
+                {filters.map((filter) => (
                   <option key={filter} value={filter}>
                     {filter}
                   </option>
