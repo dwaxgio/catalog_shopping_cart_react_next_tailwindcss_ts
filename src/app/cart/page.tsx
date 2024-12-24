@@ -6,9 +6,11 @@ const CartPage = () => {
   const [cart, setCart] = useState<Game[]>([]);
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    setCart(savedCart);
-    console.log(savedCart); 
+    if (typeof window !== "undefined") {
+      const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+      console.log(savedCart);
+      setCart(savedCart);
+    }
   }, []);
 
   const removeFromCart = (id: string) => {
@@ -64,6 +66,7 @@ const CartPage = () => {
                 </p>
               </div>
             </div>
+
             <div className="custom-cart-left-and-right-panels-container flex flex-col md:flex-row gap-8">
               <div className="custom-cart-left-panel">
                 <ul className="space-y-4">
@@ -142,7 +145,10 @@ const CartPage = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="custom-cart-checkout-button">Checkout</button>
+
+                  <button className="custom-cart-checkout-button">
+                    Checkout
+                  </button>
                 </div>
               </div>
             </div>
