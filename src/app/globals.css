@@ -1006,6 +1006,17 @@ body {
     margin-bottom: 50px;
   }
 
+  .custom-cart-order-summary-detail-title{
+    margin-bottom: 10px !important;
+  }
+  .custom-cart-order-summary-detail-total-items{
+    margin-bottom: 50px !important;
+  }
+
+  .custom-cart-order-summary-detail-name{
+    margin-bottom: 10px !important;
+  }
+
   .custom-cart-order-summary-detail-title,
   .custom-cart-order-summary-detail-total-items,
   .custom-cart-order-summary-detail-name,
