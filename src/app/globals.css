@@ -867,6 +867,14 @@ body {
     text-align: left;
   }
 
+  .custom-cart-sub-header-container {
+    margin-left: 110px;
+    margin-top: 250px;
+
+    margin-bottom: 200px;
+    width: 100%;
+  }
+
   .custom-cart-sub-sub-header-container {
     display: flex;
     flex-direction: column;
@@ -876,8 +884,9 @@ body {
     margin: 0 auto;
     box-sizing: border-box;
     width: 100%;
-    margin-left: 90px;
-    margin-bottom: 50px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    padding: 0;
   }
 
   .custom-cart-sub-sub-header-title {
@@ -892,6 +901,7 @@ body {
     font-size: 16px;
     margin: 0;
     width: 100%;
+    margin-top: -20px;
   }
 
   .custom-cart-left-item-container {
