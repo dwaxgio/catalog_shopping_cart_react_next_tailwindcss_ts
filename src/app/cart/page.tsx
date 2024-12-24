@@ -1,11 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Game } from "../../utils/endpoint";
 
 const CartPage = () => {
-  const [cart, setCart] = useState<Game[]>(
-    JSON.parse(localStorage.getItem("cart") || "[]")
-  );
+  const [cart, setCart] = useState<Game[]>([]);
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCart(savedCart);
+  }, []);
 
   const removeFromCart = (id: string) => {
     const updatedCart = cart.filter((item) => item.id !== id);
