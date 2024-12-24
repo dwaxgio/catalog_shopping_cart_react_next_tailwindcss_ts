@@ -8,6 +8,7 @@ const CartPage = () => {
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(savedCart);
+    console.log(savedCart); 
   }, []);
 
   const removeFromCart = (id: string) => {
@@ -16,7 +17,7 @@ const CartPage = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  const total = cart.reduce((acc, item) => acc + item.price, 0);
+  const total = cart.reduce((acc, item) => acc + (item.price || 0), 0);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -36,6 +37,7 @@ const CartPage = () => {
               </div>
             </div>
           </header>
+
           <div className="custom-cart-sub-header">
             <div className="custom-cart-sub-header-container">
               <a href="/" className="custom-cart-sub-header-content">
@@ -114,16 +116,22 @@ const CartPage = () => {
                     <div className="custom-cart-order-summary-detail-total-items">
                       {cart.length} {cart.length > 1 ? "items" : "item"}
                     </div>
-                    {cart.map((item: Game) => (
-                      <div key={item.id} className="flex justify-between">
-                        <p className="custom-cart-order-summary-detail-name">
-                          {item.name}
-                        </p>
-                        <p className="custom-cart-order-summary-detail-price">
-                          ${item.price}
-                        </p>
-                      </div>
-                    ))}
+
+                    {cart.length > 0 ? (
+                      cart.map((item: Game) => (
+                        <div key={item.id} className="flex justify-between">
+                          <p className="custom-cart-order-summary-detail-name">
+                            {item.name}
+                          </p>
+                          <p className="custom-cart-order-summary-detail-price">
+                            ${item.price}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No items in the cart</p>
+                    )}
+
                     <hr className="my-4" />
                     <div className="custom-cart-order-summary-detail-total-container">
                       <p className="custom-cart-order-summary-detail-total-title">
@@ -134,9 +142,7 @@ const CartPage = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="custom-cart-checkout-button">
-                    Checkout
-                  </button>
+                  <button className="custom-cart-checkout-button">Checkout</button>
                 </div>
               </div>
             </div>
