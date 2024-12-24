@@ -23,13 +23,11 @@ const CatalogPage = () => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
-    // Cargar carrito desde localStorage
     const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(savedCart);
   }, []);
 
   useEffect(() => {
-    // Obtener filtros desde la API
     const fetchFilters = async () => {
       try {
         const response = await fetch(`${API_URL}/games`);
@@ -44,7 +42,6 @@ const CatalogPage = () => {
   }, [API_URL]);
 
   useEffect(() => {
-    // Obtener juegos desde la API
     const fetchGames = async () => {
       setLoading(true);
       try {
@@ -77,8 +74,8 @@ const CatalogPage = () => {
   };
 
   return (
-    <>
-      <div className="catalog-container">
+    <div className="flex flex-col min-h-screen">
+      <div className="catalog-container flex-1">
         <div className="catalog">
           <header className="custom-main-header">
             <div className="custom-main-header-internal-container">
@@ -150,7 +147,7 @@ const CatalogPage = () => {
               <p>No games available</p>
             )}
           </div>
-
+         
           {!loading && displayedGames.length < games.length && (
             <div className="custom-see-more-container">
               <button
@@ -164,7 +161,7 @@ const CatalogPage = () => {
         </div>
       </div>
 
-      <footer className="custom-main-footer">
+      <footer className="custom-main-footer flex-shrink-0">
         <div className="custom-main-footer-information">
           <div className="custom-main-footer-img">
             <img
@@ -175,7 +172,7 @@ const CatalogPage = () => {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 

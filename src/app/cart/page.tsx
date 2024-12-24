@@ -19,8 +19,8 @@ const CartPage = () => {
   const total = cart.reduce((acc, item) => acc + item.price, 0);
 
   return (
-    <>
-      <div className="container">
+    <div className="flex flex-col min-h-screen">
+      <div className="container flex-1">
         <div className="cart">
           <header className="custom-main-header">
             <div className="custom-main-header-internal-container">
@@ -144,7 +144,7 @@ const CartPage = () => {
         </div>
       </div>
 
-      <footer className="custom-main-footer">
+      <footer className="custom-main-footer flex-shrink-0">
         <div className="custom-main-footer-information">
           <div className="custom-main-footer-img">
             <img
@@ -155,7 +155,7 @@ const CartPage = () => {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 
