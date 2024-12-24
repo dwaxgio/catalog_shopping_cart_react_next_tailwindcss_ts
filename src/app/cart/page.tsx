@@ -8,7 +8,7 @@ const CartPage = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-      console.log(savedCart); 
+      console.log("Cart loaded:", savedCart); 
       setCart(savedCart);
     }
   }, []);
@@ -121,16 +121,19 @@ const CartPage = () => {
                     </div>
 
                     {cart.length > 0 ? (
-                      cart.map((item: Game) => (
-                        <div key={item.id} className="flex justify-between">
-                          <p className="custom-cart-order-summary-detail-name">
-                            {item.name}
-                          </p>
-                          <p className="custom-cart-order-summary-detail-price">
-                            ${item.price}
-                          </p>
-                        </div>
-                      ))
+                      cart.map((item: Game) => {
+                        console.log("Rendering item in summary:", item); 
+                        return (
+                          <div key={item.id} className="flex justify-between">
+                            <p className="custom-cart-order-summary-detail-name">
+                              {item.name}
+                            </p>
+                            <p className="custom-cart-order-summary-detail-price">
+                              ${item.price}
+                            </p>
+                          </div>
+                        );
+                      })
                     ) : (
                       <p>No items in the cart</p>
                     )}
