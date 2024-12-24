@@ -938,7 +938,7 @@ body {
 
   .custom-cart-left-item-img img {
     height: 136px;
-    padding: 8px;
+    padding: 0px;
     gap: 0px;
     object-fit: cover;
     display: block;
