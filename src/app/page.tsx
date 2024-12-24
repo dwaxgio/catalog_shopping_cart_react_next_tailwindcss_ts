@@ -19,6 +19,8 @@ const CatalogPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [cart, setCart] = useState<Game[]>([]);
   const [visibleCount, setVisibleCount] = useState<number>(12);
+  const [totalGames, setTotalGames] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -46,11 +48,17 @@ const CatalogPage = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `${API_URL}/games?genre=${genre}&limit=${visibleCount}`
+          `${API_URL}/games?genre=${genre}&page=${page}&limit=12`
         );
         const data = await response.json();
-        setGames(data.games);
-        setDisplayedGames(data.games.slice(0, visibleCount));
+        setTotalGames(data.totalGames);
+
+        if (page === 1) {
+          setGames(data.games);
+          setDisplayedGames(data.games);
+        } else {
+          setDisplayedGames((prev) => [...prev, ...data.games]);
+        }
       } catch (error) {
         console.error("Error fetching games:", error);
       }
@@ -58,7 +66,7 @@ const CatalogPage = () => {
     };
 
     fetchGames();
-  }, [genre, visibleCount, API_URL]);
+  }, [genre, API_URL, page]);
 
   const toggleCartItem = (game: Game) => {
     const isInCart = cart.some((item) => item.id === game.id);
@@ -70,8 +78,10 @@ const CatalogPage = () => {
   };
 
   const loadMoreGames = () => {
-    setVisibleCount((prevCount) => prevCount + 3);
+    setPage(page + 1);
   };
+
+  const showSeeMoreButton = !loading && displayedGames.length < totalGames;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -100,7 +110,13 @@ const CatalogPage = () => {
                 Genre &nbsp;&nbsp;|&nbsp;&nbsp;
               </p>
               <select
-                onChange={(e) => setGenre(e.target.value)}
+                onChange={(e) => {
+                  setGenre(e.target.value);
+                  setVisibleCount(12);
+                  setDisplayedGames([]);
+                  setGames([]);
+                  setPage(1);
+                }}
                 className="custom-main-sub-header-title-filter-filter"
               >
                 {filters.map((filter) => (
@@ -147,9 +163,8 @@ const CatalogPage = () => {
               <p>No games available</p>
             )}
           </div>
-
-          {!loading && displayedGames.length < games.length && (
-            <div className="custom-see-more-container">
+          {showSeeMoreButton && (
+            <div className="custom-see-more-container flex justify-center mt-4">
               <button
                 onClick={loadMoreGames}
                 className="custom-see-more-button"

@@ -24,15 +24,13 @@ export async function GET(request: Request) {
   const toIndex = page * ITEMS_PER_PAGE;
   const paginatedGames = games.slice(fromIndex, toIndex);
 
-  const totalPages = Math.ceil(games.length / ITEMS_PER_PAGE);
-  const currentPage = page;
+  const totalGames = games.length;
 
   return new Response(
     JSON.stringify({
       games: paginatedGames,
       availableFilters,
-      totalPages,
-      currentPage,
+      totalGames,
     }),
     { headers: { "Content-Type": "application/json" }, status: 200 }
   );

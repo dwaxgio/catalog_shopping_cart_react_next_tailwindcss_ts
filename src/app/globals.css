@@ -867,6 +867,13 @@ body {
     text-align: left;
   }
 
+  .custom-see-more-button{
+    width: 93%;
+    margin: 0 auto;
+    padding: 0;
+   
+  }
+
   .custom-cart-sub-header-container {
     margin-top: 250px;
     margin-bottom: 200px;
