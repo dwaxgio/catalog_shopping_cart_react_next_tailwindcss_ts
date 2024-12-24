@@ -155,7 +155,6 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-
       <footer className="custom-main-footer flex-shrink-0">
         <div className="custom-main-footer-information">
           <div className="custom-main-footer-img">
