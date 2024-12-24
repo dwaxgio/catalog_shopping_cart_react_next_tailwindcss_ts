@@ -147,7 +147,7 @@ const CatalogPage = () => {
               <p>No games available</p>
             )}
           </div>
-         
+
           {!loading && displayedGames.length < games.length && (
             <div className="custom-see-more-container">
               <button
@@ -164,11 +164,13 @@ const CatalogPage = () => {
       <footer className="custom-main-footer flex-shrink-0">
         <div className="custom-main-footer-information">
           <div className="custom-main-footer-img">
-            <img
-              src="/app-images/AP_LOGO.png"
-              alt="Logo"
-              className="logo-image"
-            />
+            <a href="/">
+              <img
+                src="/app-images/AP_LOGO.png"
+                alt="Logo"
+                className="logo-image"
+              />
+            </a>
           </div>
         </div>
       </footer>
