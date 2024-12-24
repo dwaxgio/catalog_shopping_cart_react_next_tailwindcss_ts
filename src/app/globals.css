@@ -641,13 +641,13 @@ body {
   border: 0.5px solid;
   border-color: #8f8f8f;
   background: #ffffff;
+  color: #000000; 
 }
 
 .custom-cart-order-summary-detail-title {
   width: 474px;
   height: 30px;
   gap: 0px;
-  opacity: 0px;
   font-family: "Archivo", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -664,7 +664,6 @@ body {
   width: 474px;
   height: 24px;
   gap: 0px;
-  opacity: 0px;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -683,7 +682,6 @@ body {
   height: auto;
   min-height: 24px;
   gap: 0px;
-  opacity: 0px;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -701,7 +699,6 @@ body {
   width: 62px;
   height: 24px;
   gap: 0px;
-  opacity: 0px;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -867,11 +864,10 @@ body {
     text-align: left;
   }
 
-  .custom-see-more-button{
+  .custom-see-more-button {
     width: 93%;
     margin: 0 auto;
     padding: 0;
-   
   }
 
   .custom-cart-sub-header-container {
@@ -1013,6 +1009,7 @@ body {
   .custom-cart-order-summary-detail-title {
     margin-bottom: 10px !important;
   }
+
   .custom-cart-order-summary-detail-total-items {
     margin-bottom: 50px !important;
   }
